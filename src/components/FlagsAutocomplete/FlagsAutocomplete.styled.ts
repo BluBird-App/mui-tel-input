@@ -49,7 +49,7 @@ const Styled = {
     return {
       padding: 10,
       width: '100%',
-      borderBottom: '1px solid #eaecef',
+      // borderBottom: '1px solid #eaecef',
       '& input': {
         borderRadius: 4,
         backgroundColor: '#333333',
