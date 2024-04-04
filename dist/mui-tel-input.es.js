@@ -956,13 +956,13 @@ const A = {
   ACRONYM: 2,
   MATCHES: 1,
   NO_MATCH: 0
-}, br = (e, n) => String(e.rankedValue).localeCompare(String(n.rankedValue));
+}, Nr = (e, n) => String(e.rankedValue).localeCompare(String(n.rankedValue));
 function un(e, n, t) {
   t === void 0 && (t = {});
   const {
     keys: r,
     threshold: d = A.MATCHES,
-    baseSort: i = br,
+    baseSort: i = Nr,
     sorter: a = (l) => l.sort(($, s) => Ir($, s, i))
   } = t, o = e.reduce(u, []);
   return a(o).map((l) => {
@@ -972,7 +972,7 @@ function un(e, n, t) {
     return $;
   });
   function u(l, $, s) {
-    const f = Nr($, r, n, t), {
+    const f = br($, r, n, t), {
       rank: g,
       keyThreshold: h = d
     } = f;
@@ -984,7 +984,7 @@ function un(e, n, t) {
   }
 }
 un.rankings = A;
-function Nr(e, n, t, r) {
+function br(e, n, t, r) {
   if (!n) {
     const i = e;
     return {
@@ -1131,7 +1131,7 @@ function Sr(e) {
     ...e
   };
 }
-const be = {
+const Ne = {
   AutocompletePopper: L("div")(({ theme: e }) => ({
     [`& .${H.paper}`]: {
       boxShadow: "none",
@@ -1146,7 +1146,7 @@ const be = {
         minHeight: "auto",
         alignItems: "flex-start",
         padding: 8,
-        borderBottom: "1px solid #eaecef",
+        // borderBottom: `1px solid #eaecef`,
         '&[aria-selected="true"]': {
           backgroundColor: "transparent"
         },
@@ -1160,7 +1160,7 @@ const be = {
     }
   })),
   FlagsAutocompletePopper: L(Kn)(({ theme: e }) => ({
-    border: "1px solid #e1e4e8",
+    // border: '1px solid #e1e4e8',
     boxShadow: "0 8px 24px rgba(149, 157, 165, 0.2)",
     borderRadius: 6,
     width: 300,
@@ -1184,7 +1184,7 @@ const be = {
       }
     }
   }))
-}, Tr = (e) => /* @__PURE__ */ y(be.AutocompletePopper, { ...e }), Fr = [], wr = [], Mr = [], Dr = [], Rr = ({
+}, Tr = (e) => /* @__PURE__ */ y(Ne.AutocompletePopper, { ...e }), Fr = [], wr = [], Mr = [], Dr = [], Rr = ({
   anchorEl: e,
   className: n,
   onClose: t,
@@ -1213,7 +1213,7 @@ const be = {
     c.type === "keydown" && c.key === "Backspace" && S === "removeOption" || p !== null && typeof p != "string" && r(p.countryCode);
   };
   return /* @__PURE__ */ y(
-    be.FlagsAutocompletePopper,
+    Ne.FlagsAutocompletePopper,
     {
       anchorEl: e,
       className: `MuiTelInput-FlagsAutocomplete-Popover ${n || ""}`,
@@ -1233,7 +1233,7 @@ const be = {
           options: f,
           PopperComponent: Tr,
           renderInput: (c) => /* @__PURE__ */ y(
-            be.Input,
+            Ne.Input,
             {
               autoFocus: !0,
               className: "MuiTelInput-FlagsAutocomplete-Input",
@@ -1378,13 +1378,13 @@ function sn(e, n) {
   var t = Array.prototype.slice.call(n);
   return t.push(_e), e.apply(this, t);
 }
-function Ne(e) {
+function be(e) {
   "@babel/helpers - typeof";
-  return Ne = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(n) {
+  return be = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(n) {
     return typeof n;
   } : function(n) {
     return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
-  }, Ne(e);
+  }, be(e);
 }
 function Ke(e, n) {
   for (var t = 0; t < n.length; t++) {
@@ -1417,7 +1417,7 @@ function Zr(e) {
   };
 }
 function Yr(e, n) {
-  if (n && (Ne(n) === "object" || typeof n == "function"))
+  if (n && (be(n) === "object" || typeof n == "function"))
     return n;
   if (n !== void 0)
     throw new TypeError("Derived constructors may only return object or undefined");
@@ -1528,7 +1528,7 @@ function Je(e, n) {
 function ue(e, n, t) {
   return n && Je(e.prototype, n), t && Je(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-var dd = "1.2.0", id = "1.7.35", qe = " ext. ", ad = /^\d+$/, N = /* @__PURE__ */ function() {
+var dd = "1.2.0", id = "1.7.35", qe = " ext. ", ad = /^\d+$/, b = /* @__PURE__ */ function() {
   function e(n) {
     oe(this, e), $d(n), this.metadata = n, hn.call(this, n);
   }
@@ -1948,7 +1948,7 @@ var sd = function(n) {
   return Pe(n);
 };
 function Ge(e, n) {
-  if (n = new N(n), n.hasCountry(e))
+  if (n = new b(n), n.hasCountry(e))
     return n.country(e).countryCallingCode();
   throw new Error("Unknown country: ".concat(e));
 }
@@ -1992,11 +1992,11 @@ function Cd(e) {
     d++;
   }
 }
-function bd(e, n) {
+function Nd(e, n) {
   var t = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (t)
     return (t = t.call(e)).next.bind(t);
-  if (Array.isArray(e) || (t = Nd(e)) || n && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (t = bd(e)) || n && e && typeof e.length == "number") {
     t && (e = t);
     var r = 0;
     return function() {
@@ -2006,7 +2006,7 @@ function bd(e, n) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Nd(e, n) {
+function bd(e, n) {
   if (e) {
     if (typeof e == "string")
       return rt(e, n);
@@ -2099,7 +2099,7 @@ function mn(e) {
   return Ad[e];
 }
 function re(e) {
-  for (var n = "", t = bd(e.split("")), r; !(r = t()).done; ) {
+  for (var n = "", t = Nd(e.split("")), r; !(r = t()).done; ) {
     var d = r.value, i = mn(d);
     i && (n += i);
   }
@@ -2211,7 +2211,7 @@ function yn(e, n, t) {
   return o === a ? "IS_POSSIBLE" : o > a ? "TOO_SHORT" : d[d.length - 1] < a ? "TOO_LONG" : d.indexOf(a, 1) >= 0 ? "IS_POSSIBLE" : "INVALID_LENGTH";
 }
 function Td(e, n, t) {
-  if (n === void 0 && (n = {}), t = new N(t), n.v2) {
+  if (n === void 0 && (n = {}), t = new b(t), n.v2) {
     if (!e.countryCallingCode)
       throw new Error("Invalid phone number object passed");
     t.selectNumberingPlan(e.countryCallingCode);
@@ -2279,7 +2279,7 @@ function ot(e, n) {
 var Md = ["MOBILE", "PREMIUM_RATE", "TOLL_FREE", "SHARED_COST", "VOIP", "PERSONAL_NUMBER", "PAGER", "UAN", "VOICEMAIL"];
 function $e(e, n, t) {
   if (n = n || {}, !(!e.country && !e.countryCallingCode)) {
-    t = new N(t), t.selectNumberingPlan(e.country, e.countryCallingCode);
+    t = new b(t), t.selectNumberingPlan(e.country, e.countryCallingCode);
     var r = n.v2 ? e.nationalNumber : e.phone;
     if (M(r, t.nationalNumberPattern())) {
       if (ge(r, "FIXED_LINE", t))
@@ -2296,26 +2296,26 @@ function ge(e, n, t) {
   return n = t.type(n), !n || !n.pattern() || n.possibleLengths() && n.possibleLengths().indexOf(e.length) < 0 ? !1 : M(e, n.pattern());
 }
 function Dd(e, n, t) {
-  if (n = n || {}, t = new N(t), t.selectNumberingPlan(e.country, e.countryCallingCode), t.hasTypes())
+  if (n = n || {}, t = new b(t), t.selectNumberingPlan(e.country, e.countryCallingCode), t.hasTypes())
     return $e(e, n, t.metadata) !== void 0;
   var r = n.v2 ? e.nationalNumber : e.phone;
   return M(r, t.nationalNumberPattern());
 }
 function Rd(e, n, t) {
-  var r = new N(t), d = r.getCountryCodesForCallingCode(e);
+  var r = new b(t), d = r.getCountryCodesForCallingCode(e);
   return d ? d.filter(function(i) {
     return _d(n, i, t);
   }) : [];
 }
 function _d(e, n, t) {
-  var r = new N(t);
+  var r = new b(t);
   return r.selectNumberingPlan(n), r.numberingPlan.possibleLengths().indexOf(e.length) >= 0;
 }
 function vn(e) {
   return e.replace(new RegExp("[".concat(E, "]+"), "g"), " ").trim();
 }
 var Cn = /(\$\d)/;
-function bn(e, n, t) {
+function Nn(e, n, t) {
   var r = t.useInternationalFormat, d = t.withNationalPrefix;
   t.carrierCode, t.metadata;
   var i = e.replace(new RegExp(n.pattern()), r ? n.internationalFormat() : (
@@ -2338,7 +2338,7 @@ function bn(e, n, t) {
 }
 var Ld = /^[\d]+(?:[~\u2053\u223C\uFF5E][\d]+)?$/;
 function kd(e, n, t) {
-  var r = new N(t);
+  var r = new b(t);
   if (r.selectNumberingPlan(e, n), r.defaultIDDPrefix())
     return r.defaultIDDPrefix();
   if (Ld.test(r.IDDPrefix()))
@@ -2413,7 +2413,7 @@ var st = {
   }
 };
 function Hd(e, n, t, r) {
-  if (t ? t = $t($t({}, st), t) : t = st, r = new N(r), e.country && e.country !== "001") {
+  if (t ? t = $t($t({}, st), t) : t = st, r = new b(r), e.country && e.country !== "001") {
     if (!r.hasCountry(e.country))
       throw new Error("Unknown country: ".concat(e.country));
     r.country(e.country);
@@ -2445,7 +2445,7 @@ function Hd(e, n, t, r) {
 }
 function de(e, n, t, r, d) {
   var i = Wd(r.formats(), e);
-  return i ? bn(e, i, {
+  return i ? Nn(e, i, {
     useInternationalFormat: t === "INTERNATIONAL",
     withNationalPrefix: !(i.nationalPrefixIsOptionalWhenFormattingInNationalFormat() && d && d.nationalPrefix === !1),
     carrierCode: n,
@@ -2514,7 +2514,7 @@ function ht(e, n) {
 function zd(e, n, t) {
   return n && ht(e.prototype, n), t && ht(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-var Nn = /* @__PURE__ */ function() {
+var bn = /* @__PURE__ */ function() {
   function e(n, t, r) {
     if (Yd(this, e), !n)
       throw new TypeError("`country` or `countryCallingCode` not passed");
@@ -2554,7 +2554,7 @@ var Nn = /* @__PURE__ */ function() {
   }, {
     key: "isNonGeographic",
     value: function() {
-      var t = new N(this.getMetadata());
+      var t = new b(this.getMetadata());
       return t.isNonGeographicCallingCode(this.countryCallingCode);
     }
   }, {
@@ -2612,7 +2612,7 @@ var Nn = /* @__PURE__ */ function() {
   return /^[A-Z]{2}$/.test(n);
 };
 function Kd(e, n) {
-  var t, r, d = new N(n);
+  var t, r, d = new b(n);
   return Xd(e) ? (t = e, d.selectNumberingPlan(t), r = d.countryCallingCode()) : r = e, {
     country: t,
     countryCallingCode: r
@@ -2621,7 +2621,7 @@ function Kd(e, n) {
 var Qd = new RegExp("([" + P + "])");
 function An(e, n, t, r) {
   if (n) {
-    var d = new N(r);
+    var d = new b(r);
     d.selectNumberingPlan(n, t);
     var i = new RegExp(d.IDDPrefix());
     if (e.search(i) === 0) {
@@ -2692,7 +2692,7 @@ function qd(e, n) {
 function Pn(e, n, t, r) {
   var d = n ? Ge(n, r) : t;
   if (e.indexOf(d) === 0) {
-    r = new N(r), r.selectNumberingPlan(n, t);
+    r = new b(r), r.selectNumberingPlan(n, t);
     var i = e.slice(d.length), a = Oe(i, r), o = a.nationalNumber, u = Oe(e, r), l = u.nationalNumber;
     if (!M(l, r.nationalNumberPattern()) && M(o, r.nationalNumberPattern()) || le(l, r) === "TOO_LONG")
       return {
@@ -2731,7 +2731,7 @@ function In(e, n, t, r) {
   }
   if (e[1] === "0")
     return {};
-  r = new N(r);
+  r = new b(r);
   for (var l = 2; l - 1 <= Kr && l <= e.length; ) {
     var $ = e.slice(1, l);
     if (r.hasCallingCode($))
@@ -2777,7 +2777,7 @@ function gt(e, n) {
 }
 function xn(e, n) {
   var t = n.countries, r = n.defaultCountry, d = n.metadata;
-  d = new N(d);
+  d = new b(d);
   for (var i = [], a = ei(t), o; !(o = a()).done; ) {
     var u = o.value;
     if (d.country(u), d.leadingDigits()) {
@@ -2844,7 +2844,7 @@ function hi(e, n) {
 }
 var gi = 250, mi = new RegExp("[" + ae + P + "]"), yi = new RegExp("[^" + P + "#]+$");
 function Te(e, n, t) {
-  if (n = n || {}, t = new N(t), n.defaultCountry && !t.hasCountry(n.defaultCountry))
+  if (n = n || {}, t = new b(t), n.defaultCountry && !t.hasCountry(n.defaultCountry))
     throw n.v2 ? new F("INVALID_COUNTRY") : new Error("Unknown country: ".concat(n.defaultCountry));
   var r = vi(e, n.v2, n.extract), d = r.number, i = r.ext, a = r.error;
   if (!d) {
@@ -2852,7 +2852,7 @@ function Te(e, n, t) {
       throw a === "TOO_SHORT" ? new F("TOO_SHORT") : new F("NOT_A_NUMBER");
     return {};
   }
-  var o = bi(d, n.defaultCountry, n.defaultCallingCode, t), u = o.country, l = o.nationalNumber, $ = o.countryCallingCode, s = o.countryCallingCodeSource, f = o.carrierCode;
+  var o = Ni(d, n.defaultCountry, n.defaultCallingCode, t), u = o.country, l = o.nationalNumber, $ = o.countryCallingCode, s = o.countryCallingCodeSource, f = o.carrierCode;
   if (!t.hasSelectedNumberingPlan()) {
     if (n.v2)
       throw new F("INVALID_COUNTRY");
@@ -2869,7 +2869,7 @@ function Te(e, n, t) {
     return {};
   }
   if (n.v2) {
-    var g = new Nn($, l, t.metadata);
+    var g = new bn($, l, t.metadata);
     return u && (g.country = u), f && (g.carrierCode = f), i && (g.ext = i), g.__countryCallingCodeSource = s, g;
   }
   var h = (n.extended ? t.hasSelectedNumberingPlan() : u) ? M(l, t.nationalNumberPattern()) : !1;
@@ -2921,7 +2921,7 @@ function Ci(e, n, t) {
   };
   return t && (r.ext = t), r;
 }
-function bi(e, n, t, r) {
+function Ni(e, n, t, r) {
   var d = In(it(e), n, t, r.metadata), i = d.countryCallingCodeSource, a = d.countryCallingCode, o = d.number, u;
   if (a)
     r.selectNumberingPlan(a);
@@ -2961,14 +2961,14 @@ function vt(e) {
   for (var n = 1; n < arguments.length; n++) {
     var t = arguments[n] != null ? arguments[n] : {};
     n % 2 ? pt(Object(t), !0).forEach(function(r) {
-      Ni(e, r, t[r]);
+      bi(e, r, t[r]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : pt(Object(t)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
     });
   }
   return e;
 }
-function Ni(e, n, t) {
+function bi(e, n, t) {
   return n in e ? Object.defineProperty(e, n, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[n] = t, e;
 }
 function Ai(e, n, t) {
@@ -3010,15 +3010,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 function Ei(e, n) {
   if (e) {
     if (typeof e == "string")
-      return bt(e, n);
+      return Nt(e, n);
     var t = Object.prototype.toString.call(e).slice(8, -1);
     if (t === "Object" && e.constructor && (t = e.constructor.name), t === "Map" || t === "Set")
       return Array.from(e);
     if (t === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t))
-      return bt(e, n);
+      return Nt(e, n);
   }
 }
-function bt(e, n) {
+function Nt(e, n) {
   (n == null || n > e.length) && (n = e.length);
   for (var t = 0, r = new Array(n); t < n; t++)
     r[t] = e[t];
@@ -3068,7 +3068,7 @@ function Fi(e) {
     metadata: l
   };
 }
-function Nt(e, n) {
+function bt(e, n) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -3081,9 +3081,9 @@ function Nt(e, n) {
 function At(e) {
   for (var n = 1; n < arguments.length; n++) {
     var t = arguments[n] != null ? arguments[n] : {};
-    n % 2 ? Nt(Object(t), !0).forEach(function(r) {
+    n % 2 ? bt(Object(t), !0).forEach(function(r) {
       wi(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : Nt(Object(t)).forEach(function(r) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : bt(Object(t)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
     });
   }
@@ -3313,7 +3313,7 @@ function Vi(e, n, t) {
   });
 }
 function St(e, n, t) {
-  var r = t.metadata, d = t.useNationalPrefixFormattingRule, i = t.getSeparatorAfterNationalPrefix, a = bn(e.nationalSignificantNumber, n, {
+  var r = t.metadata, d = t.useNationalPrefixFormattingRule, i = t.getSeparatorAfterNationalPrefix, a = Nn(e.nationalSignificantNumber, n, {
     carrierCode: e.carrierCode,
     useInternationalFormat: e.international,
     withNationalPrefix: d,
@@ -3912,7 +3912,7 @@ function Bt(e, n) {
 function pa(e, n, t) {
   return n && Bt(e.prototype, n), t && Bt(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-var va = "[" + E + P + "]+", Ca = new RegExp("^" + va + "$", "i"), ba = "(?:[" + ae + "][" + E + P + "]*|[" + E + P + "]+)", Na = new RegExp("[^" + E + P + "]+.*$"), Aa = /[^\d\[\]]/, Pa = /* @__PURE__ */ function() {
+var va = "[" + E + P + "]+", Ca = new RegExp("^" + va + "$", "i"), Na = "(?:[" + ae + "][" + E + P + "]*|[" + E + P + "]+)", ba = new RegExp("[^" + E + P + "]+.*$"), Aa = /[^\d\[\]]/, Pa = /* @__PURE__ */ function() {
   function e(n) {
     var t = n.defaultCountry, r = n.defaultCallingCode, d = n.metadata, i = n.onNationalSignificantNumberChange;
     ya(this, e), this.defaultCountry = t, this.defaultCallingCode = r, this.metadata = d, this.onNationalSignificantNumberChange = i;
@@ -4077,11 +4077,11 @@ var va = "[" + E + P + "]+", Ca = new RegExp("^" + va + "$", "i"), ba = "(?:[" +
   }]), e;
 }();
 function Ia(e) {
-  var n = e.search(ba);
+  var n = e.search(Na);
   if (!(n < 0)) {
     e = e.slice(n);
     var t;
-    return e[0] === "+" && (t = !0, e = e.slice(1)), e = e.replace(Na, ""), t && (e = "+" + e), e;
+    return e[0] === "+" && (t = !0, e = e.slice(1)), e = e.replace(ba, ""), t && (e = "+" + e), e;
   }
 }
 function xa(e) {
@@ -4155,7 +4155,7 @@ function Da(e, n, t) {
 }
 var Tn = /* @__PURE__ */ function() {
   function e(n, t) {
-    Ma(this, e), this.metadata = new N(t);
+    Ma(this, e), this.metadata = new b(t);
     var r = this.getCountryAndCallingCode(n), d = Ea(r, 2), i = d[0], a = d[1];
     this.defaultCountry = i, this.defaultCallingCode = a, this.reset();
   }
@@ -4367,7 +4367,7 @@ var Tn = /* @__PURE__ */ function() {
       var t = this.state, r = t.nationalSignificantNumber, d = t.carrierCode, i = t.callingCode, a = this._getCountry();
       if (r && !(!a && !i)) {
         if (a && a === this.defaultCountry) {
-          var o = new N(this.metadata.metadata);
+          var o = new b(this.metadata.metadata);
           o.selectNumberingPlan(a);
           var u = o.numberingPlan.callingCode(), l = this.metadata.getCountryCodesForCallingCode(u);
           if (l.length > 1) {
@@ -4379,7 +4379,7 @@ var Tn = /* @__PURE__ */ function() {
             $ && (a = $);
           }
         }
-        var s = new Nn(a || i, r, this.metadata.metadata);
+        var s = new bn(a || i, r, this.metadata.metadata);
         return d && (s.carrierCode = d), s;
       }
     }
@@ -4713,29 +4713,29 @@ const Va = (e) => {
       onlyCountries: r,
       disableFormatting: c,
       continents: Z
-    }), wn = (b) => {
-      b.preventDefault(), (!g || !C) && x(D.current);
-    }, Mn = (b) => {
-      x(null), R(b), p && j.current && j.current.focus();
-    }, Dn = (b) => {
-      j.current && Gr(j.current), o?.(b);
-    }, Rn = (b) => {
+    }), wn = (N) => {
+      N.preventDefault(), (!g || !C) && x(D.current);
+    }, Mn = (N) => {
+      x(null), R(N), p && j.current && j.current.focus();
+    }, Dn = (N) => {
+      j.current && Gr(j.current), o?.(N);
+    }, Rn = (N) => {
       const z = j.current;
-      z.setSelectionRange(0, z.value.length), a?.(b);
-    }, _n = (b) => {
+      z.setSelectionRange(0, z.value.length), a?.(N);
+    }, _n = (N) => {
       if (u) {
-        u(b);
+        u(N);
         return;
       }
       const z = window.getSelection();
       if (z) {
         const jn = z.toString().replaceAll(" ", "");
-        b.clipboardData.setData("text/plain", jn), b.preventDefault();
+        N.clipboardData.setData("text/plain", jn), N.preventDefault();
       }
-    }, Ln = (b) => {
-      j.current = b, s?.inputRef && he(b, s.inputRef), f && he(b, f);
-    }, kn = (b) => {
-      D.current = b, n && he(b, n);
+    }, Ln = (N) => {
+      j.current = N, s?.inputRef && he(N, s.inputRef), f && he(N, f);
+    }, kn = (N) => {
+      D.current = N, n && he(N, n);
     }, Bn = () => {
       x(null);
     }, Un = q ? `+${ne(q)}` : "", Gn = t ? (
