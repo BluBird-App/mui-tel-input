@@ -7,7 +7,13 @@ import {
   listItemTextCountryClass,
   menuItemClass
 } from '@components/FlagMenuItem/FlagMenuItem'
-import FlagsMenu, { menuClass } from '@components/FlagsMenu/FlagsMenu'
+import FlagsAutocomplete, {
+  FlagsAutocompleteProps
+} from '@components/FlagsAutocomplete/FlagsAutocomplete'
+import FlagsMenu, {
+  FlagsMenuProps,
+  menuClass
+} from '@components/FlagsMenu/FlagsMenu'
 import {
   getCallingCodeOfCountry,
   getValidCountry
@@ -42,6 +48,20 @@ export type {
   MuiTelInputInfo,
   MuiTelInputProps,
   MuiTelInputReason
+}
+
+type FlagsDropdownProps = Pick<MuiTelInputProps, 'allowSearch' | 'MenuProps'> &
+  FlagsAutocompleteProps &
+  FlagsMenuProps
+
+const FlagsDropdown = (props: FlagsDropdownProps) => {
+  const { allowSearch, MenuProps, ...restProps } = props
+
+  if (allowSearch) {
+    return <FlagsAutocomplete {...restProps} />
+  }
+
+  return <FlagsMenu {...MenuProps} {...restProps} />
 }
 
 export { matchIsValidTel } from '@shared/helpers/valid-phone-number'
@@ -223,7 +243,7 @@ const MuiTelInput = React.forwardRef(
           {...restTextFieldProps}
         />
         {!disableDropdown ? (
-          <FlagsMenu
+          <FlagsDropdown
             onlyCountries={onlyCountries}
             excludedCountries={excludedCountries}
             continents={continents}
@@ -234,7 +254,8 @@ const MuiTelInput = React.forwardRef(
             langOfCountryName={langOfCountryName}
             onSelectCountry={handleChangeCountry}
             getFlagElement={getFlagElement}
-            {...MenuProps}
+            allowSearch
+            MenuProps={MenuProps}
           />
         ) : null}
       </>

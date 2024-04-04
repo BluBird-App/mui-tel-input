@@ -60,6 +60,7 @@ export type MuiTelInputProps = BaseTextFieldProps &
     onChange?: (value: string, info: MuiTelInputInfo) => void
     value?: string | undefined
     MenuProps?: Partial<MenuProps>
+    allowSearch?: boolean
     getFlagElement?: GetFlagElement
     unknownFlagElement?: MuiTelInputFlagElement
   }
