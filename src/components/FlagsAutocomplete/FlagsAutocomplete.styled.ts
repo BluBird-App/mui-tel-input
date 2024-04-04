@@ -19,7 +19,7 @@ const Styled = {
           minHeight: 'auto',
           alignItems: 'flex-start',
           padding: 8,
-          borderBottom: `1px solid #eaecef`,
+          // borderBottom: `1px solid #eaecef`,
           '&[aria-selected="true"]': {
             backgroundColor: 'transparent'
           },
@@ -36,7 +36,7 @@ const Styled = {
   }),
   FlagsAutocompletePopper: styled(Popper)(({ theme }) => {
     return {
-      border: '1px solid #e1e4e8',
+      // border: '1px solid #e1e4e8',
       boxShadow: '0 8px 24px rgba(149, 157, 165, 0.2)',
       borderRadius: 6,
       width: 300,
