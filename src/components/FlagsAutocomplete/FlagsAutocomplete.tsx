@@ -112,7 +112,7 @@ const FlagsAutocomplete = ({
     }
 
     return matchSorter(options, inputValue, {
-      keys: ['callingCode', 'countryCode', 'displayName']
+      keys: ['displayName', 'callingCode']
     })
   }
 
